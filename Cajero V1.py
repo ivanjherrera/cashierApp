@@ -2,6 +2,7 @@ from tkinter import*
 from tkinter import messagebox
 import sqlite3
 from Modulo_Metodos import* 
+from Consultas import*
 
 #------------ZONA DE LA RAIZ---------
 raiz=Tk()
@@ -41,8 +42,10 @@ btn_Depositar.grid(row=4,column=0,padx=10,pady=10)
 #btn_Retirar.grid(row=5,column=0,padx=10,pady=10)
 btn_Pagos=Button(miFrame,text="PAGOS", font=Helvfont_Btn, command=construye_Frame_Pagos)
 btn_Pagos.grid(row=5,column=0,padx=10,pady=10)
+btn_CreaTabla=Button(miFrame,text="CREAR TABLA", font=Helvfont_Btn, command=CreaTabla)
+btn_CreaTabla.grid(row=6,column=0,padx=10,pady=10)
 btn_Salir=Button(miFrame,text="SALIR", font=Helvfont_Btn,command=cierra_Ventana)
-btn_Salir.grid(row=6,column=0,padx=10,pady=10)
+btn_Salir.grid(row=7,column=0,padx=10,pady=10)
 
 
 

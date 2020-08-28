@@ -1,5 +1,6 @@
 from tkinter import*
 from tkinter import font
+from Consultas import*
 
 
 #-------------METODO PARA LA VENTANA DE CREAR USUARIOS-------------------
@@ -27,8 +28,12 @@ def construye_Frame_Crear():
     
     label_Id=Label(raiz_Crear,text="ID:")
     label_Id.grid(row=1,column=0,padx=5,pady=5)
+    
+    btn_Salir=Button(raiz_Crear,text="SALIR",command=lambda:raiz_Crear.destroy())
+    btn_Salir.grid(row=2,column=1,padx=5,pady=5)
     txt_Id=Entry(raiz_Crear,textvariable=Id)
     txt_Id.grid(row=2,column=0,padx=5,pady=5)
+    
 
     label_Nombre=Label(raiz_Crear,text="NOMBRES:")
     label_Nombre.grid(row=3,column=0,padx=5,pady=5)
