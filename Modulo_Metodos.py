@@ -126,3 +126,28 @@ def construye_Frame_Pagos():
     raiz_Crear=Toplevel()
     raiz_Crear.title("Pagos")
     raiz_Crear.geometry("295x200+522+230")
+
+    label_Id=Label(raiz_Crear,text="ID:")
+    label_Id.grid(row=1,column=0,padx=5,pady=5)
+    txt_Id=Entry(raiz_Crear,textvariable=Id)
+    txt_Id.grid(row=1,column=1,padx=5,pady=5)
+    btn_Search=Button(raiz_Crear,text="BUSCAR")
+    btn_Search.grid(row=1,column=2,padx=5,pady=5)
+
+    label_Name=Label(raiz_Crear,textvariable=Name1_Label)
+    label_Name.grid(row=2,column=0,padx=5,pady=5)
+    btn_Serv1=Button(raiz_Crear,text="Serv1")
+    btn_Serv1.grid(row=2,column=2,padx=5,pady=5)
+
+
+    label_Saldo=Label(raiz_Crear,textvariable=Saldo)
+    label_Saldo.grid(row=3,column=0,padx=5,pady=5)
+    btn_Serv2=Button(raiz_Crear,text="Serv2")
+    btn_Serv2.grid(row=3,column=2,padx=5,pady=5)
+
+    btn_Serv3=Button(raiz_Crear,text="Serv3")
+    btn_Serv3.grid(row=4,column=2,padx=5,pady=5)
+
+    btn_Salir=Button(raiz_Crear,text="SALIR", command=lambda:raiz_Crear.destroy())
+    btn_Salir.grid(row=5,column=2,padx=5,pady=5)
+
