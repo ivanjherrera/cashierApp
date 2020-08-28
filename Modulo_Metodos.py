@@ -110,4 +110,19 @@ def construye_Frame_Depositar_Retirar():
     btn_Salir=Button(raiz_Crear,text="SALIR",command=lambda:raiz_Crear.destroy())
     btn_Salir.grid(row=6,column=2,padx=5,pady=5)
 
+def construye_Frame_Pagos():
 
+    Id=StringVar()
+    Name1_Label=StringVar()
+    Name1_Label.set("...")
+    Saldo=StringVar()
+    Saldo.set("...")
+
+     #----------------CREACION DE LA OTRA RAIZ-------------------
+
+    #frame.witdraw()
+    #raiz_Crear=Tk()
+    
+    raiz_Crear=Toplevel()
+    raiz_Crear.title("Pagos")
+    raiz_Crear.geometry("295x200+522+230")

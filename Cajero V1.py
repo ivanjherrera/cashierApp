@@ -39,7 +39,7 @@ btn_Depositar=Button(miFrame,text="DEPOSITAR-RETIRAR", font=Helvfont_Btn,command
 btn_Depositar.grid(row=4,column=0,padx=10,pady=10)
 #btn_Retirar=Button(miFrame,text="RETIRAR", font=Helvfont_Btn)
 #btn_Retirar.grid(row=5,column=0,padx=10,pady=10)
-btn_Pagos=Button(miFrame,text="PAGOS", font=Helvfont_Btn)
+btn_Pagos=Button(miFrame,text="PAGOS", font=Helvfont_Btn, command=construye_Frame_Pagos)
 btn_Pagos.grid(row=5,column=0,padx=10,pady=10)
 btn_Salir=Button(miFrame,text="SALIR", font=Helvfont_Btn,command=cierra_Ventana)
 btn_Salir.grid(row=6,column=0,padx=10,pady=10)
@@ -47,8 +47,8 @@ btn_Salir.grid(row=6,column=0,padx=10,pady=10)
 
 
 #NOTA: CREAR LA VENTANA DE PAGOS
-#NOTA2: AVERIGUAR SI SE EXISTEN LOS LINK LABELS
-#NOTA3: GUARDAR EL PROYECTO EN GIT ANTES DE EMPEZAR CON LO DEMAS
+
+
 
 
 
