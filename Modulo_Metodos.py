@@ -105,7 +105,7 @@ def construye_Frame_Depositar_Retirar():
     label_Id.grid(row=1,column=0,padx=5,pady=5)
     txt_Id=Entry(raiz_Crear,textvariable=Id)
     txt_Id.grid(row=1,column=1,padx=5,pady=5)
-    btn_Search=Button(raiz_Crear,text="SEARCH")
+    btn_Search=Button(raiz_Crear,text="SEARCH",command=lambda:ejecuta_Consultas(txt_Id,Name1_Label,Name2_Label,Apelli_Label,Apelli2_Label,Saldo))
     btn_Search.grid(row=1,column=2,padx=5,pady=5)
 
     label_Name=Label(raiz_Crear,textvariable=Name1_Label)

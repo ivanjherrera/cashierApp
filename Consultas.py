@@ -54,4 +54,29 @@ def InsertaRegistros(Name,Name2,Apellido,Apellido2,Saldo):
 
      messagebox.showinfo("Gestor", "Registro agregado con exito")
 	
-	 
+
+def ejecuta_Consultas(Id,Name,Name2,Apellido,Apellido2,Saldo):
+	
+	if Id.get()!="":
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Name2.set(usuario[2])
+			Apellido.set(usuario[3])
+			Apellido2.set(usuario[4])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
+	else:
+		messagebox.showerror("ERROR","El Id que ingreso no existe, Verifique y vuelva a intentarlo.")
