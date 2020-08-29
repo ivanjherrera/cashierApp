@@ -49,7 +49,7 @@ btn_Salir.grid(row=7,column=0,padx=10,pady=10)
 
 
 
-#NOTA: 
+#NOTA: AGREGAR EL PROBLEMA DE LAS VARIABLES DE SALDO
 
 
 
