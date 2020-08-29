@@ -53,8 +53,10 @@ def construye_Frame_Crear():
     label_Saldo.grid(row=7,column=0,padx=5,pady=5)
     txt_Saldo=Entry(raiz_Crear,textvariable=Saldo)
     txt_Saldo.grid(row=8,column=0,padx=5,pady=5)
-    btn_Agregar=Button(raiz_Crear,text="AGREGAR")
+    btn_Agregar=Button(raiz_Crear,text="AGREGAR",command=lambda:InsertaRegistros(Name,Name2,Apellido,Apellido2,Saldo))
     btn_Agregar.grid(row=8,column=1,padx=5,pady=5)
+
+    #raiz_Crear.mainloop()
 
 def construye_Frame_Depositar_Retirar():
 
