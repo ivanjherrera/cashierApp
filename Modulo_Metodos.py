@@ -3,6 +3,20 @@ from tkinter import font
 from Consultas import*
 
 
+def LimpiaText(Nombre,Nombre2,Apellido,Apellido2,Saldo):
+	try:
+		Nombre.delete("0","end")
+		Nombre2.delete("0","end")
+		Apellido.delete("0","end")
+		Apellido2.delete("0","end")
+		Saldo.delete("0","end")
+		
+
+		
+	except Exception as e:
+
+		messagebox.showwarning("Advertencia","Los campos ya estan limpios.")
+
 #-------------METODO PARA LA VENTANA DE CREAR USUARIOS-------------------
 def construye_Frame_Crear():
    
@@ -20,7 +34,7 @@ def construye_Frame_Crear():
     
     raiz_Crear=Toplevel()
     raiz_Crear.title("Crear")
-    raiz_Crear.geometry("285x250+522+230")
+    raiz_Crear.geometry("285x255+522+230")
 
     
 
@@ -37,6 +51,8 @@ def construye_Frame_Crear():
 
     label_Nombre=Label(raiz_Crear,text="NOMBRES:")
     label_Nombre.grid(row=3,column=0,padx=5,pady=5)
+    btn_Limpia=Button(raiz_Crear,text="LIMPIA TEXT",command=lambda:LimpiaText(txt_Nombre,txt_Nombre2,txt_Apellido,txt_Apellido2,txt_Saldo))
+    btn_Limpia.grid(row=3,column=1,padx=5,pady=5)
     txt_Nombre=Entry(raiz_Crear,textvariable=Name)
     txt_Nombre.grid(row=4,column=0,padx=5,pady=5)
     txt_Nombre2=Entry(raiz_Crear,textvariable=Name2)
