@@ -105,7 +105,7 @@ def retira_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo)
 		miConexion.commit()
 		miConexion.close()
 		
-		messagebox.showinfo("Gestor","Registro actualizado con exito")
+		messagebox.showinfo("Gestor","Accion realizada con exito.")
 
 		miConexion=sqlite3.connect("TablaClientes")
 		miCursor=miConexion.cursor()
@@ -130,4 +130,50 @@ def retira_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo)
 	else:
 		print("ERROR")
 		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+
+
+
+def deposita_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo):
+
+	SaldoActual=float(SaldoViejo.get())
+	SaldoRetirar=float(SaldoRetiro.get())
+	Saldo_Total=SaldoActual+SaldoRetirar
+	
+	
+	miConexion=sqlite3.connect("TablaClientes")
+	miCursor=miConexion.cursor()
+	print(Saldo_Total)
+
+
+	miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+			
+			"' WHERE ID=" + Id.get())
+			
 		
+		
+	miConexion.commit()
+	miConexion.close()
+		
+	messagebox.showinfo("Gestor","Accion realizada con exito.")
+
+	miConexion=sqlite3.connect("TablaClientes")
+	miCursor=miConexion.cursor()
+
+	miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+	elUsuario=miCursor.fetchall()
+
+	for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Name2.set(usuario[2])
+			Apellido.set(usuario[3])
+			Apellido2.set(usuario[4])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+	miConexion.commit()
+	miConexion.close()	 
+	
