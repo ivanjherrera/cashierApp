@@ -26,7 +26,7 @@ def construye_Frame_Crear():
     Name2=StringVar()
     Apellido=StringVar()
     Apellido2=StringVar()
-    Saldo=StringVar() 
+    Saldo=DoubleVar() 
    #----------------CREACION DE LA OTRA RAIZ-------------------
 
     #frame.witdraw()
@@ -87,7 +87,7 @@ def construye_Frame_Depositar_Retirar():
     Apelli_Label.set("...")
     Apelli2_Label=StringVar()
     Apelli2_Label.set("...")
-    Saldo=StringVar()
+    Saldo=DoubleVar()
     Saldo.set("...")
 
    #----------------CREACION DE LA OTRA RAIZ-------------------
@@ -138,7 +138,7 @@ def construye_Frame_Pagos():
     Id=StringVar()
     Name1_Label=StringVar()
     Name1_Label.set("...")
-    Saldo=StringVar()
+    Saldo=DoubleVar()
     Saldo.set("...")
 
      #----------------CREACION DE LA OTRA RAIZ-------------------

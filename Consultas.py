@@ -35,7 +35,7 @@ def InsertaRegistros(Name,Name2,Apellido,Apellido2,Saldo):
      Nombre2=Name2
      Apelli=Apellido
      Apelli2=Apellido2
-     Sald=Saldo 
+     #Sald=Saldo 
 
      miConexion=sqlite3.connect("TablaClientes")
 	 #miCursor=miConexion.cursor()
@@ -46,7 +46,7 @@ def InsertaRegistros(Name,Name2,Apellido,Apellido2,Saldo):
 		"','" + Nombre2.get() +
 		"','" + Apelli.get() +
         "','" + Apelli2.get() +  
-		"','" + Sald.get() + "')")
+		"','" + str(Saldo.get()) + "')")
 		#"','" + textoComentario.get("1.0","end")+ "')")
      
      miConexion.commit()
@@ -80,3 +80,24 @@ def ejecuta_Consultas(Id,Name,Name2,Apellido,Apellido2,Saldo):
 		miConexion.close()	 
 	else:
 		messagebox.showerror("ERROR","El Id que ingreso no existe, Verifique y vuelva a intentarlo.")
+
+
+#------------METODO PARA REALIZAR LOS RETIROS DE DINERO----------------
+
+def retira_Dinero():
+	miConexion=sqlite3.connect("TablaClientes")
+	miCursor=miConexion.cursor()
+
+
+	miCursor.execute("UPDATE CLIENTES SET NOMBRE_USUARIO='"+ Name.get()+
+		"',PASSWORD='" + Pass.get()+
+		"',APELLIDO='" + Apelli.get()+
+		"',DIRECCION='" + direcc.get()+
+		"',COMENTARIOS='" + textoComentario.get("1.0","end")+
+		"' WHERE ID=" + Id.get())
+		
+
+	miConexion.commit()
+	miConexion.close()
+
+	messagebox.showinfo("Gestor","Registro actualizado con exito")
