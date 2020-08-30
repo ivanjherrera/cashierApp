@@ -138,7 +138,7 @@ def construye_Frame_Pagos():
     Id=StringVar()
     Name1_Label=StringVar()
     Name1_Label.set("...")
-    Saldo=DoubleVar()
+    Saldo=StringVar()
     Saldo.set("...")
 
      #----------------CREACION DE LA OTRA RAIZ-------------------
@@ -154,21 +154,21 @@ def construye_Frame_Pagos():
     label_Id.grid(row=1,column=0,padx=5,pady=5)
     txt_Id=Entry(raiz_Crear,textvariable=Id)
     txt_Id.grid(row=1,column=1,padx=5,pady=5)
-    btn_Search=Button(raiz_Crear,text="BUSCAR")
+    btn_Search=Button(raiz_Crear,text="BUSCAR",command=lambda:ejecuta_Consulta(txt_Id,Name1_Label,Saldo))
     btn_Search.grid(row=1,column=2,padx=5,pady=5)
 
     label_Name=Label(raiz_Crear,textvariable=Name1_Label)
     label_Name.grid(row=2,column=0,padx=5,pady=5)
-    btn_Serv1=Button(raiz_Crear,text="Serv1")
+    btn_Serv1=Button(raiz_Crear,text="Serv1",command=lambda:primer_Servicio(txt_Id,Saldo,Name1_Label,Saldo))
     btn_Serv1.grid(row=2,column=2,padx=5,pady=5)
 
 
     label_Saldo=Label(raiz_Crear,textvariable=Saldo)
     label_Saldo.grid(row=3,column=0,padx=5,pady=5)
-    btn_Serv2=Button(raiz_Crear,text="Serv2")
+    btn_Serv2=Button(raiz_Crear,text="Serv2",command=lambda:segundo_Servicio(txt_Id,Saldo,Name1_Label,Saldo))
     btn_Serv2.grid(row=3,column=2,padx=5,pady=5)
 
-    btn_Serv3=Button(raiz_Crear,text="Serv3")
+    btn_Serv3=Button(raiz_Crear,text="Serv3",command=lambda:tercer_Servicio(txt_Id,Saldo,Name1_Label,Saldo))
     btn_Serv3.grid(row=4,column=2,padx=5,pady=5)
 
     btn_Salir=Button(raiz_Crear,text="SALIR", command=lambda:raiz_Crear.destroy())
