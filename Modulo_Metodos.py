@@ -77,7 +77,7 @@ def construye_Frame_Crear():
 def construye_Frame_Depositar_Retirar():
 
     Id=StringVar()
-    NewSaldo=DoubleVar()
+    NewSaldo=StringVar()#100.0#DoubleVar()
     NewSaldo.set("")
     Name1_Label=StringVar()
     Name1_Label.set("...")
@@ -87,7 +87,7 @@ def construye_Frame_Depositar_Retirar():
     Apelli_Label.set("...")
     Apelli2_Label=StringVar()
     Apelli2_Label.set("...")
-    Saldo=DoubleVar()
+    Saldo=StringVar()
     Saldo.set("...")
 
    #----------------CREACION DE LA OTRA RAIZ-------------------
