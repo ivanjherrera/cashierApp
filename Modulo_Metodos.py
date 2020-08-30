@@ -126,7 +126,7 @@ def construye_Frame_Depositar_Retirar():
     txt_NewSaldo=Entry(raiz_Crear,textvariable=NewSaldo)
     txt_NewSaldo.grid(row=5,column=1,padx=5,pady=5)
 
-    btn_Retirar=Button(raiz_Crear,text="RETIRAR",command=lambda:retira_Dinero(txt_Id,Saldo,NewSaldo))
+    btn_Retirar=Button(raiz_Crear,text="RETIRAR",command=lambda:retira_Dinero(txt_Id,Saldo,NewSaldo,Name1_Label,Name2_Label,Apelli_Label,Apelli2_Label,Saldo))
     btn_Retirar.grid(row=6,column=0,padx=5,pady=5)
     btn_Depositar=Button(raiz_Crear,text="DEPOSITAR")
     btn_Depositar.grid(row=6,column=1,padx=5,pady=5)

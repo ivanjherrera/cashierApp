@@ -84,7 +84,7 @@ def ejecuta_Consultas(Id,Name,Name2,Apellido,Apellido2,Saldo):
 
 #------------METODO PARA REALIZAR LOS RETIROS DE DINERO----------------
 
-def retira_Dinero(Id,SaldoViejo,SaldoRetiro):
+def retira_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo):
 
 	SaldoActual=float(SaldoViejo.get())
 	SaldoRetirar=float(SaldoRetiro.get())
@@ -106,6 +106,27 @@ def retira_Dinero(Id,SaldoViejo,SaldoRetiro):
 		miConexion.close()
 		
 		messagebox.showinfo("Gestor","Registro actualizado con exito")
+
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Name2.set(usuario[2])
+			Apellido.set(usuario[3])
+			Apellido2.set(usuario[4])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
 	else:
 		print("ERROR")
 		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
