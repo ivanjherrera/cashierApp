@@ -52,7 +52,7 @@ def InsertaRegistros(Name,Name2,Apellido,Apellido2,Saldo):
      miConexion.commit()
      miConexion.close()
 
-     messagebox.showinfo("Gestor", "Registro agregado con exito")
+     messagebox.showinfo("Gestor", "Registro: '" + Name.get() + "' agregado con exito")
 	
 
 def ejecuta_Consultas(Id,Name,Name2,Apellido,Apellido2,Saldo):
@@ -88,9 +88,10 @@ def retira_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo)
 
 	SaldoActual=float(SaldoViejo.get())
 	SaldoRetirar=float(SaldoRetiro.get())
-	Saldo_Total=SaldoActual-SaldoRetirar
 	
-	if SaldoActual>SaldoRetirar:
+	
+	if SaldoActual>=SaldoRetirar:
+		Saldo_Total=SaldoActual-SaldoRetirar
 		miConexion=sqlite3.connect("TablaClientes")
 		miCursor=miConexion.cursor()
 		print(Saldo_Total)
@@ -130,14 +131,15 @@ def retira_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo)
 	else:
 		print("ERROR")
 		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+		SaldoRetiro.set("")
 
 
 
-def deposita_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Saldo):
+def deposita_Dinero(Id,SaldoViejo,SaldoDeposito,Name,Name2,Apellido,Apellido2,Saldo):
 
 	SaldoActual=float(SaldoViejo.get())
-	SaldoRetirar=float(SaldoRetiro.get())
-	Saldo_Total=SaldoActual+SaldoRetirar
+	SaldoDepositar=float(SaldoDeposito.get())
+	Saldo_Total=SaldoActual+SaldoDepositar
 	
 	
 	miConexion=sqlite3.connect("TablaClientes")
@@ -176,4 +178,171 @@ def deposita_Dinero(Id,SaldoViejo,SaldoRetiro,Name,Name2,Apellido,Apellido2,Sald
 
 	miConexion.commit()
 	miConexion.close()	 
+	SaldoDeposito.set("")
+
+def ejecuta_Consulta(Id,Name,Saldo):
+	if Id.get()!="":
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
+	else:
+		messagebox.showerror("ERROR","El Id que ingreso no existe, Verifique y vuelva a intentarlo.")
+
+
+def primer_Servicio(Id,SaldoViejo,Name,Saldo):
+
+	SaldoActual=float(SaldoViejo.get())
+	SaldoRetirar=float(750)
+	
+	
+	if SaldoActual>=SaldoRetirar:
+		Saldo_Total=SaldoActual-SaldoRetirar
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+		print(Saldo_Total)
+
+
+		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+			
+			"' WHERE ID=" + Id.get())
+			
+		
+		
+		miConexion.commit()
+		miConexion.close()
+		
+		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
+	else:
+		print("ERROR")
+		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+		#SaldoRetiro.set("")
+
+
+def segundo_Servicio(Id,SaldoViejo,Name,Saldo):
+
+	SaldoActual=float(SaldoViejo.get())
+	SaldoRetirar=float(1000)
+	
+	
+	if SaldoActual>=SaldoRetirar:
+		Saldo_Total=SaldoActual-SaldoRetirar
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+		print(Saldo_Total)
+
+
+		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+			
+			"' WHERE ID=" + Id.get())
+			
+		
+		
+		miConexion.commit()
+		miConexion.close()
+		
+		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
+	else:
+		print("ERROR")
+		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+		#SaldoRetiro.set("")
+
+	
+
+def tercer_Servicio(Id,SaldoViejo,Name,Saldo):
+
+	SaldoActual=float(SaldoViejo.get())
+	SaldoRetirar=float(1500)
+	
+	
+	if SaldoActual>=SaldoRetirar:
+		Saldo_Total=SaldoActual-SaldoRetirar
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+		print(Saldo_Total)
+
+
+		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+			
+			"' WHERE ID=" + Id.get())
+			
+		
+		
+		miConexion.commit()
+		miConexion.close()
+		
+		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+
+		miConexion=sqlite3.connect("TablaClientes")
+		miCursor=miConexion.cursor()
+
+		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+		elUsuario=miCursor.fetchall()
+
+		for usuario in elUsuario:
+
+			#Id.set(usuario[0])
+			Name.set(usuario[1])
+			Saldo.set(usuario[5])
+			
+		#print(usuario[2])
+			
+
+		miConexion.commit()
+		miConexion.close()	 
+	else:
+		print("ERROR")
+		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+		#SaldoRetiro.set("")
+
+
 	
