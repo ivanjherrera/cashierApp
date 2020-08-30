@@ -84,20 +84,21 @@ def ejecuta_Consultas(Id,Name,Name2,Apellido,Apellido2,Saldo):
 
 #------------METODO PARA REALIZAR LOS RETIROS DE DINERO----------------
 
-def retira_Dinero():
+def retira_Dinero(Id,SaldoViejo,SaldoRetiro):
+
+	Saldo_Total=SaldoViejo+SaldoRetiro
 	miConexion=sqlite3.connect("TablaClientes")
 	miCursor=miConexion.cursor()
 
 
-	miCursor.execute("UPDATE CLIENTES SET NOMBRE_USUARIO='"+ Name.get()+
-		"',PASSWORD='" + Pass.get()+
-		"',APELLIDO='" + Apelli.get()+
-		"',DIRECCION='" + direcc.get()+
-		"',COMENTARIOS='" + textoComentario.get("1.0","end")+
+	miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total.get())+
+		
 		"' WHERE ID=" + Id.get())
 		
-
+	
+	
 	miConexion.commit()
 	miConexion.close()
-
+	
 	messagebox.showinfo("Gestor","Registro actualizado con exito")
+	print(Saldo_Total.get())

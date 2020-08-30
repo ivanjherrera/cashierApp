@@ -77,8 +77,8 @@ def construye_Frame_Crear():
 def construye_Frame_Depositar_Retirar():
 
     Id=StringVar()
-    NewSaldo=StringVar()
-    #NewSaldo.set("...")
+    NewSaldo=DoubleVar()
+    NewSaldo.set("")
     Name1_Label=StringVar()
     Name1_Label.set("...")
     Name2_Label=StringVar()
@@ -126,7 +126,7 @@ def construye_Frame_Depositar_Retirar():
     txt_NewSaldo=Entry(raiz_Crear,textvariable=NewSaldo)
     txt_NewSaldo.grid(row=5,column=1,padx=5,pady=5)
 
-    btn_Retirar=Button(raiz_Crear,text="RETIRAR")
+    btn_Retirar=Button(raiz_Crear,text="RETIRAR",command=lambda:retira_Dinero(txt_Id,Saldo,NewSaldo))
     btn_Retirar.grid(row=6,column=0,padx=5,pady=5)
     btn_Depositar=Button(raiz_Crear,text="DEPOSITAR")
     btn_Depositar.grid(row=6,column=1,padx=5,pady=5)
