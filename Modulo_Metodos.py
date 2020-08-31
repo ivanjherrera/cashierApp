@@ -139,7 +139,7 @@ def construye_Frame_Pagos():
     Name1_Label=StringVar()
     Name1_Label.set("...")
     Saldo=StringVar()
-    Saldo.set("...")
+    Saldo.set("0")
 
      #----------------CREACION DE LA OTRA RAIZ-------------------
 

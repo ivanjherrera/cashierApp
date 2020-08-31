@@ -205,144 +205,156 @@ def ejecuta_Consulta(Id,Name,Saldo):
 
 def primer_Servicio(Id,SaldoViejo,Name,Saldo):
 
-	SaldoActual=float(SaldoViejo.get())
-	SaldoRetirar=float(750)
-	
-	
-	if SaldoActual>=SaldoRetirar:
-		Saldo_Total=SaldoActual-SaldoRetirar
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
-		print(Saldo_Total)
 
-
-		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
-			
-			"' WHERE ID=" + Id.get())
-			
+	if Id.get()!="":
+		SaldoActual=float(SaldoViejo.get())
+		SaldoRetirar=float(750)
 		
 		
-		miConexion.commit()
-		miConexion.close()
-		
-		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+		if SaldoActual>=SaldoRetirar:
+			Saldo_Total=SaldoActual-SaldoRetirar
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+			print(Saldo_Total)
 
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
 
-		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
-		elUsuario=miCursor.fetchall()
-
-		for usuario in elUsuario:
-
-			#Id.set(usuario[0])
-			Name.set(usuario[1])
-			Saldo.set(usuario[5])
+			miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+				
+				"' WHERE ID=" + Id.get())
+				
 			
-		#print(usuario[2])
 			
+			miConexion.commit()
+			miConexion.close()
+			
+			messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
 
-		miConexion.commit()
-		miConexion.close()	 
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+
+			miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+			elUsuario=miCursor.fetchall()
+
+			for usuario in elUsuario:
+
+				#Id.set(usuario[0])
+				Name.set(usuario[1])
+				Saldo.set(usuario[5])
+				
+			#print(usuario[2])
+				
+
+			miConexion.commit()
+			miConexion.close()	 
+		else:
+			print("ERROR")
+			messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+			#SaldoRetiro.set("")
 	else:
-		print("ERROR")
-		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
-		#SaldoRetiro.set("")
+		messagebox.showerror("ERROR","No puede dejar el campo Id vacio.")
 
 
 def segundo_Servicio(Id,SaldoViejo,Name,Saldo):
 
-	SaldoActual=float(SaldoViejo.get())
-	SaldoRetirar=float(1000)
-	
-	
-	if SaldoActual>=SaldoRetirar:
-		Saldo_Total=SaldoActual-SaldoRetirar
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
-		print(Saldo_Total)
 
-
-		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
-			
-			"' WHERE ID=" + Id.get())
-			
+	if Id.get()!="":
+		SaldoActual=float(SaldoViejo.get())
+		SaldoRetirar=float(1000)
 		
 		
-		miConexion.commit()
-		miConexion.close()
-		
-		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+		if SaldoActual>=SaldoRetirar:
+			Saldo_Total=SaldoActual-SaldoRetirar
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+			print(Saldo_Total)
 
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
 
-		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
-		elUsuario=miCursor.fetchall()
-
-		for usuario in elUsuario:
-
-			#Id.set(usuario[0])
-			Name.set(usuario[1])
-			Saldo.set(usuario[5])
+			miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+				
+				"' WHERE ID=" + Id.get())
+				
 			
-		#print(usuario[2])
 			
+			miConexion.commit()
+			miConexion.close()
+			
+			messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
 
-		miConexion.commit()
-		miConexion.close()	 
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+
+			miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+			elUsuario=miCursor.fetchall()
+
+			for usuario in elUsuario:
+
+				#Id.set(usuario[0])
+				Name.set(usuario[1])
+				Saldo.set(usuario[5])
+				
+			#print(usuario[2])
+				
+
+			miConexion.commit()
+			miConexion.close()	 
+		else:
+			print("ERROR")
+			messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+			#SaldoRetiro.set("")
 	else:
-		print("ERROR")
-		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
-		#SaldoRetiro.set("")
+		messagebox.showerror("ERROR","No puede dejar el campo Id vacio.")
 
 	
 
 def tercer_Servicio(Id,SaldoViejo,Name,Saldo):
 
-	SaldoActual=float(SaldoViejo.get())
-	SaldoRetirar=float(1500)
-	
-	
-	if SaldoActual>=SaldoRetirar:
-		Saldo_Total=SaldoActual-SaldoRetirar
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
-		print(Saldo_Total)
 
-
-		miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
-			
-			"' WHERE ID=" + Id.get())
-			
+	if Id.get()!="":
+		SaldoActual=float(SaldoViejo.get())
+		SaldoRetirar=float(1500)
 		
 		
-		miConexion.commit()
-		miConexion.close()
-		
-		messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
+		if SaldoActual>=SaldoRetirar:
+			Saldo_Total=SaldoActual-SaldoRetirar
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+			print(Saldo_Total)
 
-		miConexion=sqlite3.connect("TablaClientes")
-		miCursor=miConexion.cursor()
 
-		miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
-		elUsuario=miCursor.fetchall()
-
-		for usuario in elUsuario:
-
-			#Id.set(usuario[0])
-			Name.set(usuario[1])
-			Saldo.set(usuario[5])
+			miCursor.execute("UPDATE CLIENTES SET SALDO='"+ str(Saldo_Total)+
+				
+				"' WHERE ID=" + Id.get())
+				
 			
-		#print(usuario[2])
 			
+			miConexion.commit()
+			miConexion.close()
+			
+			messagebox.showinfo("Gestor","Se ha debitado la cantidad de: "+ str(SaldoRetirar))
 
-		miConexion.commit()
-		miConexion.close()	 
+			miConexion=sqlite3.connect("TablaClientes")
+			miCursor=miConexion.cursor()
+
+			miCursor.execute("SELECT * FROM CLIENTES WHERE ID="+ Id.get())
+			elUsuario=miCursor.fetchall()
+
+			for usuario in elUsuario:
+
+				#Id.set(usuario[0])
+				Name.set(usuario[1])
+				Saldo.set(usuario[5])
+				
+			#print(usuario[2])
+				
+
+			miConexion.commit()
+			miConexion.close()	 
+		else:
+			print("ERROR")
+			messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
+			#SaldoRetiro.set("")
 	else:
-		print("ERROR")
-		messagebox.showerror("ERROR","La cantidad a retirar es mayor a la que posee.")
-		#SaldoRetiro.set("")
+		messagebox.showerror("ERROR","No puede dejar el campo Id vacio.")
 
 
 	
